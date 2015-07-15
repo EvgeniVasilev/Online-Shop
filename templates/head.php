@@ -9,29 +9,34 @@ $h = new Helper();
     <title><?php echo $h->title(); ?></title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="custom/main.css"/>
+    <link href="font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="custom/scrool.js"></script>
+    <script src="custom/shopp.js"></script>
 </head>
-<body>
+<body id="top">
 <div class="container-fluid" id="head">
+    <!--sub navigation-->
     <div class="row">
         <div class="col-lg-6">
-            <h1>
+            <h1 class="logo">
                 <small>Orenda Store</small>
             </h1>
         </div>
         <br/>
 
-        <div class="col-lg-6" style="text-align: right;">
+        <div class="col-lg-6 custom-navbar">
             <nav>
-                <a class="btn btn-default" href="./aboutus.php">About Us</a>
-
-                <a class="btn btn-default" href="./payment.php">Payment and Delivery</a>
-
-                <a class="btn btn-default" href="./withdraw.php">Withdrawing</a>
-
-                <a class="btn btn-default" href="./contacts.php">Contacts</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a href="./aboutus.php">About Us</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a href="./payment.php">Payment and Delivery</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a href="./withdraw.php">Withdraw</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a href="./contacts.php">Contacts</a>
+                <span>&nbsp;|&nbsp;</span>
             </nav>
         </div>
 
@@ -87,15 +92,15 @@ $h = new Helper();
 
                 <!--manage kids link-->
                 <?php if (strpos($_SERVER['PHP_SELF'], '/index.php') !== false): ?>
-                <li><a href="#kids">FOR KIDS</a></li>
+                    <li><a href="#kids">FOR KIDS</a></li>
                 <?php endif; ?>
                 <?php if (strpos($_SERVER['PHP_SELF'], '/index.php') === false): ?>
-                <li><a href="./kids.php">FOR KIDS</a></li>
+                    <li><a href="./kids.php">FOR KIDS</a></li>
                 <?php endif; ?>
                 <!--manage kids link-->
 
             </ul>
-            <form class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right hide" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>

@@ -1,9 +1,71 @@
-#head{
-    background-color: beige;
+a.light {
+    color: white !important;
 }
 
-a.light{
+#line {
+    border: 1px solid #C9302C;
+}
+
+.padded-13{
+    padding: 13px;
+}
+
+#socials i {
+    color: #C9302C;
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+}
+
+#socials a {
+    text-decoration: none;
+    outline: none;
+}
+
+.logo {
+    position: relative;
+    top: -11px;
+}
+
+.offset-top-12 {
+    margin-top: 12px !important;
+}
+
+.panel-item {
+    background-color: #E36565 !important;
     color: white !important;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.custom-navbar {
+    text-align: right;
+    margin-top: 1px;
+}
+
+.scroll-top {
+    margin-left: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: -0px;
+    display: none;
+    z-index: 1000;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(34,34,34);
+    padding: 4px;
+}
+
+a.scroll-top:hover {
+    color: white !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+a.scroll-top:focus {
+    color: white !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
 
 .flat {
@@ -15,7 +77,8 @@ a.light{
 .window {
     min-height: 500px;
 }
-.offset-bottom{
+
+.offset-bottom {
     margin-bottom: 20px;
 }
 
@@ -60,8 +123,8 @@ div.footer > div > p {
 
 .carousel-inner > .item > img,
 .carousel-inner > .itm > a > img {
-    width: 97.5%;
-    height: 490px;
+    width: 100%;
+    height: 400px;
     margin: auto;
 }
 
@@ -88,29 +151,38 @@ div.footer > div > p {
 
 .carousel-indicators li {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 1px;
+    width: 28px;
+    height: 28px;
+    margin: 10px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: white;
-    border: 0px solid rgb(255, 255, 255) !important;
-    border-radius: 5px;
+    background-color: #00b3ee;
+    border: 2px solid rgb(255, 255, 255) !important;
+    border-radius: 50px;
 }
 
 .carousel-indicators .active {
-    width: 20px !important;
-    height: 20px !important;
-    margin: 1px;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 10px;
     background-color: #4662b5;
-    /*border: 3px solid #76b53e !important;*/
-    border-radius: 5px;
+    border: 2px solid white !important;
+    border-radius: 50px;
 }
 
-@media screen and (max-width: 766px) {
+p{
+    text-align: justify !important;
+}
+
+@media screen and (max-width: 768px) {
 
     .window {
         min-height: 0px;
+    }
+
+    .custom-navbar {
+        text-align: right;
+        margin-top: -12px;
     }
 
     .carousel-inner > .item > img,
@@ -131,4 +203,45 @@ div.footer > div > p {
         color: white !important;
         display: none;
     }
+    
+    .item-img {
+    width: 100% !important;
+    height: 350px;
+}
+}
+
+@media screen and (max-width: 978px) {
+    .custom-navbar {
+        text-align: right;
+        padding-bottom: 20px;
+    }
+    .carousel-inner > .item > img,
+    .carousel-inner > .itm > a > img {
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    
+    .item-img {
+    width: 100% !important;
+    height: 400px;
+}
+}
+
+@media screen and (max-width: 1200px) {
+    .custom-navbar {
+        text-align: right;
+        padding-bottom: 20px;
+    }
+    .carousel-inner > .item > img,
+    .carousel-inner > .itm > a > img {
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    
+    .item-img {
+    width: 100% !important;
+    height: 350px;
+}
 }

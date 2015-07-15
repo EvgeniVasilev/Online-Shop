@@ -22,13 +22,13 @@ class DB
             $this->con->exec("SET CHARACTER SET utf8");
 
         } catch (PDOException $e) {
-            echo $e->getMessage();
+           echo $e->getMessage();
         }
     }
 
     function select($sql)
     {
-        $this->con->query($sql);
+        return  $this->con->query($sql);
     }
 
     function delete($sql)

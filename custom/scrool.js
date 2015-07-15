@@ -19,3 +19,31 @@ $(document).ready(function () {
 
     });
 });
+
+// scroll back window to the top
+$(document).ready(function () {
+    $('#toTop').click(function () {
+
+        var hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).position().top
+        }, 500, function () {
+            window.location.hash = hash;
+        });
+
+        return false;
+    });
+});
+// show link to scroll back to top
+$(document).ready(function () {
+    $(window).scroll(function () {
+        var scrl = $(this).scrollTop();
+        if (scrl > 500) {
+            $("#toTop").fadeIn(800);
+        }
+        if (scrl < 500) {
+            $("#toTop").fadeOut('medium');
+        }
+    });
+});
