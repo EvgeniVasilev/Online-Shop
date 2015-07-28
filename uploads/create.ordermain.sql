@@ -1,4 +1,4 @@
-create table ordermain (
+create table if not exists ordermain(
 ordermain_ordernum int (11) not null auto_increment,
 ordermain_orderdate date not null,
 ordermain_cusum int (11) not null,

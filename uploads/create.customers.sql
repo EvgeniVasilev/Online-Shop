@@ -1,4 +1,4 @@
-create table customers(
+create table if not exists customers(
     customers_custnum int (11) not null auto_increment,
     customers_firstname varchar (12) not null,
     customers_lastname varchar (50) not null,
