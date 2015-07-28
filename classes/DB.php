@@ -38,14 +38,17 @@ class DB
 
     function insert($sql)
     {
-        $this->con->query($sql);
+        return $this->con->exec($sql);
     }
 
     function update($sql)
     {
-        $this->con->query($sql);
+        return $this->con->exec($sql);
     }
 
+    function  insert_id(){
+       return  $this->con->lastInsertId();
+    }
     function __destruct__()
     {
         $this->con = null;

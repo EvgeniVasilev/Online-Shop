@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 require_once 'templates/head.php';
 ?>
     <div class="container-fluid window">
@@ -12,19 +14,19 @@ require_once 'templates/head.php';
                         <label class="label label-default" for="name">FULL NAME:</label>
                         <br/>
                         <br/>
-                        <input type="text" id="name" class="form-control"/>
+                        <input type="text" id="name" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label class="label label-default" for="email">E-MAIL:</label>
                         <br/>
                         <br/>
-                        <input type="email" id="email" class="form-control"/>
+                        <input type="email" id="email" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label class="label label-default" for="message">MESSAGE:</label>
                         <br/>
                         <br/>
-                        <textarea class="form-control" id="message"></textarea>
+                        <textarea class="form-control" id="message" required></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Mail Us" class="btn btn-primary form-control"/>

@@ -1,9 +1,11 @@
 <?php
+ob_start();
+session_start();
 require_once 'templates/head.php';
 require_once 'classes/DB.php';
 
 $db = new DB();
-$db->connect("", "", "", "");
+$db->connect("localhost", "root", "", "store");
 ?>
 <div class="container-fluid window">
     <a href="#top" id="toTop" class="scroll-top"><img src="images/back-top.png" width="100%" height="100%"/></a>
@@ -18,7 +20,6 @@ $db->connect("", "", "", "");
             $table_name = 'clothes';
             $sql = 'SELECT * FROM clothes';
             $result = $db->select($sql);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
 
             foreach ($result as $row) {
                 echo "<div class='col-lg-3 col-md-4 col-sm-3 col-xs-3'>";
