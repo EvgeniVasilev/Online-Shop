@@ -6,8 +6,7 @@ require_once 'templates/head.php';
 require_once 'classes/DB.php';
 
 $db = new DB();
-$db->connect("localhost", "root", "", "store");
-
+$db->connect('localhost', 'root', '', 'store');
 ?>
     <div class="container-fluid  window">
         <div id="myCarousel" class="carousel slide col-lg-6 col-md-6 col-sm-6" data-ride="carousel"

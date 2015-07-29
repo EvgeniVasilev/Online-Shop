@@ -5,7 +5,7 @@ require_once 'templates/head.php';
 require_once 'classes/DB.php';
 
 $db = new DB();
-$db->connect("localhost", "root", "", "store");
+$db->connect('localhost', 'root', '', 'store');
 ?>
 <div class="container-fluid window">
     <a href="#top" id="toTop" class="scroll-top"><img src="images/back-top.png" width="100%" height="100%"/></a>

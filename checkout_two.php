@@ -5,6 +5,7 @@ require_once './templates/head.php';
 require_once './classes/DB.php';
 $db = new DB();
 $db->connect('localhost', 'root', '', 'store');
+
 if (isset($_REQUEST['item_id']) and ctype_digit($_REQUEST['item_id'])) {
         $id = $_REQUEST['item_id'];
     }

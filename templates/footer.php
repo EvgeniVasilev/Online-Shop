@@ -25,7 +25,12 @@
         <br/>
         <div class="row">
             <div class="col-lg-12">
-                <b>&copy; All Rights are Property of Orenda Store</b>
+                <b>&copy; The source of the project is free for use!</b>
+                <p>
+                    Source can be downloaded from from the following url:
+                    <br/>
+                    <a href="https://github.com/EvgeniVasilev/Online-Shop">https://github.com/EvgeniVasilev/Online-Shop</a>
+                </p>
             </div>
         </div>
     </div>

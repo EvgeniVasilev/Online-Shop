@@ -44,7 +44,7 @@ $h = new Helper();
                             <span>&nbsp;|&nbsp;</span>
                         <?php endif; ?>  
                         <?php
-                        if (!isset($_SESSION['tbl_name']) and !isset($_SESSION['item_id'])):
+                        if ((!isset($_SESSION['tbl_name']) and !isset($_SESSION['item_id'])) and (strpos($_SERVER['PHP_SELF'], './modcart.php?action=add') !== false)):
                             ?>
                             <a href="./cart.php">Cart is Empty</a>
                             <span>&nbsp;|&nbsp;</span>

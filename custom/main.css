@@ -8,6 +8,11 @@ a.light {
     border-radius: 10px;
 }
 
+.red{
+    color: maroon;
+    font-family:Arial, Verdana, sans-serif;
+}
+
 #line {
     border: 1px solid #C9302C;
 }

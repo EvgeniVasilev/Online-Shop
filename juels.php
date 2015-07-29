@@ -6,7 +6,7 @@ require_once 'templates/head.php';
 require_once 'classes/DB.php';
 
 $db = new DB();
-$db->connect("localhost", "root", "", "store");
+$db->connect('localhost', 'root', '', 'store');
 ?>
 <div class="container-fluid window">
     <div class="page-header">

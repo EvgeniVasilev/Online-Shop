@@ -39,7 +39,21 @@ $action = $_REQUEST['action'];
     <?php
     switch ($action) {
         case 'add':
+        $sql_crat = "SELECT * FROM carttemp WHERE carttemp_sess ='$sess'";
+        $result_cart = $db->select($sql_crat);
+        $rows_cart = $result_cart->rowCount();
         
+        if($rows_cart == 1){
+           header("Location:./cart_warn.php");
+        } else {
+             $query = "INSERT  INTO carttemp ("
+                    . "carttemp_sess, carttemp_quan, carttemp_prod_id"
+                    . ")"
+                    . "Values("
+                    . "'$sess', '$quantity', '$prod_num')";
+            $db->insert($query);
+        }
+          
         if (isset($_REQUEST['tbl_name'])) {
              $table = $_REQUEST['tbl_name'];
         }
@@ -49,14 +63,8 @@ $action = $_REQUEST['action'];
         }
 
         $_SESSION['tbl_name'] = $table;
-        $_SESSION['item_id'] = $id;
-        
-            $query = "INSERT  INTO carttemp ("
-                    . "carttemp_sess, carttemp_quan, carttemp_prod_id"
-                    . ")"
-                    . "Values("
-                    . "'$sess', '$quantity', '$prod_num')";
-            $db->insert($query);
+        $_SESSION['item_id'] = $id;                 
+           
             echo '<h1 class="alert-success rounded">'
             . '<small>'
             . 'Item was aded to basket.'
@@ -91,19 +99,19 @@ $action = $_REQUEST['action'];
 
         case 'delete':
             unset($_SESSION['tbl_name']);
-            unset($_SESSION['item_id']);
-                    
+            unset($_SESSION['item_id']);    
+                            
             $query = "DELETE FROM carttemp "
                     . "WHERE carttemp_hidden='$modified_hidden'";
             $result = $db->delete($query);
-
+            
             echo '<h1 class="alert-success rounded">'
             . '<small>'
             . 'Item was successfully deleted!.'
             . '</small>'
             . '</h1>'     
             .'<span>&nbsp;|&nbsp;</span>'  
-            .'<a href="./cart.php">'
+            ."<a href=\"./cart.php\">"
             .'Back to Cart'
             .'</a>'
             .'<span>&nbsp;|&nbsp;</span>'

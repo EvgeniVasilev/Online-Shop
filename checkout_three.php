@@ -135,7 +135,9 @@ $order_id = null;
     $result = $db->select($query);
 
     $row = $result->fetch(PDO::FETCH_ASSOC);
-    extract($row);
+    if($row){
+       extract($row);
+    }
 
     $prod = "SELECT * FROM " . $table . " WHERE item_id = '$id'";
     $product_sub = $db->select($prod);
@@ -241,13 +243,17 @@ $order_id
 MES;
 
     // headers
-    $headers = "MIME-VERSION: 1.0\r\n";
-    $headers .= "Content-type:text/html; charset=utf-8\r\n";
-    $headers .= "From: <evgeni.vasilev1209@gmail.com>\r\n";
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type:text/html; charset=utf-8";
+    $headers .= "From: <evgeni.vasilev1209@gmail.com>";
+    $headers .= "X-Mailer:PHP  /". phpversion();
 
-    $mail = mail($to, $message, $headers);
-
-    echo $message;
+    if($row){
+      $mail = mail($to,$subject,$message, $headers);  
+      echo $message;
+    } else {
+        header('Location: ./index.php');
+    }    
 
     if ($mail) {
         unset($_SESSION['tbl_name']);
