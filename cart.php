@@ -77,7 +77,7 @@ if (isset($_REQUEST['item_id'])) {
                 $extprice = number_format($item_price * $carttemp_quan, 2);
                 echo $extprice;
                 echo "</td>";
-                echo "<td>";                           
+                echo "<td>";                                   
                 echo "<input type='submit' name='submit' value='Change Quantity' class='btn btn-default'>";
                 echo "</form>";
                 echo "</td>";

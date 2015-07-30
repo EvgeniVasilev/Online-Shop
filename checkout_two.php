@@ -4,7 +4,7 @@ session_start();
 require_once './templates/head.php';
 require_once './classes/DB.php';
 $db = new DB();
-$db->connect('localhost', 'root', '', 'store');
+$db->connect('localhost', 'root', '', '');
 
 if (isset($_REQUEST['item_id']) and ctype_digit($_REQUEST['item_id'])) {
         $id = $_REQUEST['item_id'];
@@ -23,11 +23,11 @@ if (isset($_REQUEST['item_id']) and ctype_digit($_REQUEST['item_id'])) {
         $second_name = $_REQUEST['second-name'];
     }
 
-    if (isset($_REQUEST['ship-address']) and ctype_alnum($_REQUEST['ship-address'])) {
+    if (isset($_REQUEST['ship-address'])  and $_REQUEST['ship-address'] !== "") {
         $ship_address = $_REQUEST['ship-address'];
     }
 
-    if (isset($_REQUEST['ship-address-two'])and ctype_alnum($_REQUEST['ship-address-two'])) {
+    if (isset($_REQUEST['ship-address-two'])  and $_REQUEST['ship-address-two'] !== "") {
         $ship_address_two = $_REQUEST['ship-address-two'];
     }
 

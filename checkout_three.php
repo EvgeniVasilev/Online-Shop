@@ -31,12 +31,12 @@ $order_id = null;
         $second_name = $_REQUEST['second-name'];
     }
 
-    if (isset($_REQUEST['ship-address']) and ctype_alnum($_REQUEST['ship-address'])) {
+    if (isset($_REQUEST['ship-address']) and $_REQUEST['ship-address'] !== "") {
         $ship_address = $_REQUEST['ship-address'];
     }
 
-    if (isset($_REQUEST['ship-address-two']) and ctype_alnum($_REQUEST['ship-address-two'])) {
-        $ship_address_two = $_REQUEST['ship-address-two'];
+    if (isset($_REQUEST['ship-address-two'])  and $_REQUEST['ship-address-two'] !== "") {
+        $ship_address_two = addslashes($_REQUEST['ship-address-two']);
     }
 
     if (isset($_REQUEST['city']) and ctype_alpha($_REQUEST['city'])) {
@@ -56,8 +56,8 @@ $order_id = null;
     }
     $total = $_POST['total'];
     $session_id = session_id();
-    $today = date('Y-m-d');
-
+    $today = date('Y-m-d');    
+    
     // assign customers number to new customer,
     // or find existing one
 
@@ -250,7 +250,8 @@ MES;
 
     if($row){
       $mail = mail($to,$subject,$message, $headers);  
-      echo $message;
+      echo $message;      
+           
     } else {
         header('Location: ./index.php');
     }    

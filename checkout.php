@@ -30,13 +30,13 @@ if (isset($_REQUEST['tbl_name'])) {
             <label for='ship-address' class='label label-primary form-control'>Shipping Address</label>
             <br/>
             <br/>
-            <input id='ship-address' name='ship-address' type="text" class='form-control' value="Bulgaria, Sofia" required="">
+            <input id='ship-address' name='ship-address' type="text" class='form-control' value="Car Osvoboditel №25" required="">
         </div>
         <div class='form-group'>
             <label for='ship-address-two' class='label label-primary form-control'>Shipping Address Two</label>
             <br/>
             <br/>
-            <input id='ship-address-two' name='ship-address-two' type="text" class='form-control' value="Bulgaria, Sofia" required="">
+            <input id='ship-address-two' name='ship-address-two' type="text" class='form-control' value="Car Osvoboditel №25" required="">
         </div>
         <div class='form-group'>
             <label for='city' class='label label-primary form-control'>City</label>

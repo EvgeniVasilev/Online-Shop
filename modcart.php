@@ -52,7 +52,7 @@ $action = $_REQUEST['action'];
                     . "Values("
                     . "'$sess', '$quantity', '$prod_num')";
             $db->insert($query);
-        }
+        
           
         if (isset($_REQUEST['tbl_name'])) {
              $table = $_REQUEST['tbl_name'];
@@ -65,14 +65,10 @@ $action = $_REQUEST['action'];
         $_SESSION['tbl_name'] = $table;
         $_SESSION['item_id'] = $id;                 
            
-            echo '<h1 class="alert-success rounded">'
-            . '<small>'
-            . 'Item was aded to basket.'
-            . '</small>'
-            . '</h1>'
-            . "<a href='./cart.php?item_id=$id&tbl_name=$table'>"
-            . 'View Cart'
-            . '</a>';
+        echo  $_SESSION['tbl_name'] = $table;
+        echo $_SESSION['item_id'] = $id;             
+            header("Location: ./cart.php?item_id=$id&tbl_name=$table");
+        }
             break;
         case 'change':
             if (isset($_REQUEST['tbl_name'])) {
@@ -86,59 +82,34 @@ $action = $_REQUEST['action'];
             $query = "UPDATE carttemp"
                     . " SET carttemp_quan = '$modified_quan'"
                     . " WHERE carttemp_hidden = '$modified_hidden'";
-            $db->update($query);
-            echo '<h1 class="alert-success rounded">'
-            . '<small>'
-            . 'Item was successfully modified!.'
-            . '</small>'
-            . '</h1>'
-            . "<a href=\"./cart.php?item_id=$id&tbl_name=$table\">"
-            . 'View Cart'
-            . '</a>';
+            $db->update($query);            
+            header("Location: ./cart.php?item_id=$id&tbl_name=$table");
             break;
 
-        case 'delete':
-            unset($_SESSION['tbl_name']);
-            unset($_SESSION['item_id']);    
+        case 'delete':         
                             
             $query = "DELETE FROM carttemp "
                     . "WHERE carttemp_hidden='$modified_hidden'";
-            $result = $db->delete($query);
+            $result = $db->delete($query);             
             
-            echo '<h1 class="alert-success rounded">'
-            . '<small>'
-            . 'Item was successfully deleted!.'
-            . '</small>'
-            . '</h1>'     
-            .'<span>&nbsp;|&nbsp;</span>'  
-            ."<a href=\"./cart.php\">"
-            .'Back to Cart'
-            .'</a>'
-            .'<span>&nbsp;|&nbsp;</span>'
-            .'<a href="./index.php">'
-            .'Back to Main Page'
-            .'</a>'
-            .'<span>&nbsp;|&nbsp;</span>';     
+            unset($_SESSION['tbl_name']);
+            unset($_SESSION['item_id']); 
+            
+            header('Location: ./cart.php');   
+            
+            session_unset();
+            session_destroy(); 
             break;
         case 'empty':
             unset($_SESSION['tbl_name']);
             unset($_SESSION['item_id']);
             $query = "DELETE FROM carttemp  WHERE carttemp_sess='$sess'";
             $db->delete($query);
-            echo '<h1 class="alert-success rounded">'
-            . '<small>'
-            . 'Shopping cart is empty!.'
-            . '</small>'
-            . '</h1>'
-            .'<span>&nbsp;|&nbsp;</span>'  
-            .'<a href="./cart.php">'
-            .'Back to Cart'
-            .'</a>'
-            .'<span>&nbsp;|&nbsp;</span>'
-            .'<a href="./index.php">'
-            .'Back to Main Page'
-            .'</a>'
-            .'<span>&nbsp;|&nbsp;</span>';  
+            
+            header('Location: ./cart.php'); 
+             
+            session_unset();
+            session_destroy();             
             break;
     }
     ?>
